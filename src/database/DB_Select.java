@@ -85,7 +85,7 @@ public class DB_Select {
     //Method to get the table of all books
     public static void SelectAllBooks(String BookName, ArrayList<ArrayList> OutList) {
         String sql = "SELECT * FROM Books WHERE Title LIKE ?";
-        SelectAllRows(sql, 4, BookName, OutList);
+        SelectAllRows(sql, 5, BookName, OutList);
     }
 
     //Method to get the table of all readers

@@ -209,11 +209,12 @@ public class MainMenu extends JDialog {
             String bookID = String.valueOf(MainTable.getValueAt(selectedRow, 0));
             NewBookWindow frame = new NewBookWindow(this, Integer.parseInt(bookID));
 
-            String oldTitle = String.valueOf(MainTable.getValueAt(selectedRow, 1));
-            String oldAuthor = String.valueOf(MainTable.getValueAt(selectedRow, 2));
-            String oldYear = String.valueOf(MainTable.getValueAt(selectedRow, 3));
+            String ISBN = String.valueOf(MainTable.getValueAt(selectedRow, 1));
+            String oldTitle = String.valueOf(MainTable.getValueAt(selectedRow, 2));
+            String oldAuthor = String.valueOf(MainTable.getValueAt(selectedRow, 3));
+            String oldYear = String.valueOf(MainTable.getValueAt(selectedRow, 4));
 
-            frame.UpdateFields(oldTitle, oldAuthor, oldYear);
+            frame.UpdateFields(ISBN, oldTitle, oldAuthor, oldYear);
 
             frame.setSize(new Dimension(500, 500));
             Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -296,12 +297,12 @@ public class MainMenu extends JDialog {
         MainScrollPanel.getViewport().setBackground(Color.decode("#616183"));
 
         ArrayList<ArrayList> booksList = new ArrayList<>();
-        String[] columnNames = {"Book ID", "Title", "Author", "Year of publishing"};
+        String[] columnNames = {"Book ID", "ISBN","Title", "Author", "Year of publishing"};
 
         DB_Select.SelectAllBooks(bookTitle, booksList);
 
         TableModel dataModel = new AbstractTableModel() {
-            public int getColumnCount() { return 4; }
+            public int getColumnCount() { return 5; }
             public int getRowCount() { return booksList.size(); }
             public Object getValueAt(int row, int col) { return booksList.get(row).get(col); }
             public String getColumnName(int index) { return columnNames[index]; }
@@ -312,8 +313,11 @@ public class MainMenu extends JDialog {
         MainTable.getColumnModel().getColumn(0).setMinWidth(60);
         MainTable.getColumnModel().getColumn(0).setMaxWidth(60);
 
-        MainTable.getColumnModel().getColumn(3).setMinWidth(110);
-        MainTable.getColumnModel().getColumn(3).setMaxWidth(110);
+        MainTable.getColumnModel().getColumn(1).setMinWidth(150);
+        MainTable.getColumnModel().getColumn(1).setMaxWidth(150);
+
+        MainTable.getColumnModel().getColumn(4).setMinWidth(110);
+        MainTable.getColumnModel().getColumn(4).setMaxWidth(110);
 
     }
 

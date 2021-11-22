@@ -8,15 +8,16 @@ import java.sql.SQLException;
 public class DB_Insert {
 
     //Method to add a new book to database
-    public static void InsertBook( String bookTitle, String bookAuthor, String bookYear) {
-        String sql = "INSERT INTO Books(Title, Author, YearOfPublishing) VALUES (?, ?, ?)";
+    public static void InsertBook(String isbn, String bookTitle, String bookAuthor, String bookYear) {
+        String sql = "INSERT INTO Books(ISBN, Title, Author, YearOfPublishing) VALUES (?, ?, ?, ?)";
 
         try {
             Connection connection = DB_Connect.Connect();
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, bookTitle);
-            pstmt.setString(2, bookAuthor);
-            pstmt.setString(3, bookYear);
+            pstmt.setString(1, isbn);
+            pstmt.setString(2, bookTitle);
+            pstmt.setString(3, bookAuthor);
+            pstmt.setString(4, bookYear);
             pstmt.executeUpdate();
             connection.close();
 

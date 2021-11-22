@@ -20,7 +20,7 @@ public class NewBookWindow extends JDialog {
     private JTextField TitleField;
     private JTextField AuthorField;
     private JTextField YearField;
-    private JTextField Isbn;
+    private JTextField IsbnField;
 
     private MainMenu mainMenu;
     private int editBookID;
@@ -66,7 +66,8 @@ public class NewBookWindow extends JDialog {
 
     }
 
-    void UpdateFields(String oldTitle, String oldAuthor, String oldYear) {
+    void UpdateFields(String oldIsbn, String oldTitle, String oldAuthor, String oldYear) {
+        IsbnField.setText(oldIsbn);
         TitleField.setText(oldTitle);
         AuthorField.setText(oldAuthor);
         YearField.setText(oldYear);
@@ -76,24 +77,28 @@ public class NewBookWindow extends JDialog {
         //If editBookID is -1 - add a new book
         if (editBookID == -1) {
             //If any field is empty - show alert window, else - add a book
-            if (TitleField.getText().isEmpty() || AuthorField.getText().isEmpty() || YearField.getText().isEmpty()) {
+            if (TitleField.getText().isEmpty() || AuthorField.getText().isEmpty() || YearField.getText().isEmpty() || IsbnField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Some fields might be empty", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (!CheckISBN()) {
+                JOptionPane.showMessageDialog(frame, "ISBN is wrong", "Error", JOptionPane.ERROR_MESSAGE);
             } else if(!CheckYear()) {
                 JOptionPane.showMessageDialog(frame, "Year of publishing is wrong", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                DB_Insert.InsertBook(TitleField.getText(), AuthorField.getText(), YearField.getText());
+                DB_Insert.InsertBook(IsbnField.getText(), TitleField.getText(), AuthorField.getText(), YearField.getText());
                 dispose();
                 mainMenu.UpdateTableOfBooks();
                 JOptionPane.showMessageDialog(frame, "A new book has \nbeen added successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
             }
         } else {
             //If any field is empty - show alert window, else - update a book info
-            if (TitleField.getText().isEmpty() || AuthorField.getText().isEmpty() || YearField.getText().isEmpty()) {
+            if (TitleField.getText().isEmpty() || AuthorField.getText().isEmpty() || YearField.getText().isEmpty() || IsbnField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "Some fields might be empty", "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (!CheckISBN()) {
+                JOptionPane.showMessageDialog(frame, "ISBN is wrong", "Error", JOptionPane.ERROR_MESSAGE);
             } else if(!CheckYear()) {
                 JOptionPane.showMessageDialog(frame, "Year of publishing is wrong", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                DB_Update.EditBook(editBookID, TitleField.getText(), AuthorField.getText(), YearField.getText());
+                DB_Update.EditBook(editBookID, IsbnField.getText(), TitleField.getText(), AuthorField.getText(), YearField.getText());
                 dispose();
                 mainMenu.UpdateTableOfBooks();
                 JOptionPane.showMessageDialog(frame, "The book has been \nupdated successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
@@ -122,4 +127,9 @@ public class NewBookWindow extends JDialog {
         return true;
     }
 
+    //Method to check if entered isbn is ok
+    private boolean CheckISBN() {
+        String isbn = IsbnField.getText();
+        return isbn.matches("[0-9]+") && isbn.length() == 13;
+    }
 }

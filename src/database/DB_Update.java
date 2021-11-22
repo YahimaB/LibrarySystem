@@ -27,16 +27,17 @@ public class DB_Update {
     }
 
     //Method to edit book's information in database
-    public static void EditBook(int bookID, String newTitle, String newAuthor, String newYear) {
-        String sql = "UPDATE Books SET Title = ?, Author = ?, YearOfPublishing = ? WHERE BookID = ?";
+    public static void EditBook(int bookID,String isbn, String newTitle, String newAuthor, String newYear) {
+        String sql = "UPDATE Books SET ISBN = ?, Title = ?, Author = ?, YearOfPublishing = ? WHERE BookID = ?";
 
         try {
             Connection connection = DB_Connect.Connect();
             PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, newTitle);
-            pstmt.setString(2, newAuthor);
-            pstmt.setString(3, newYear);
-            pstmt.setInt(4, bookID);
+            pstmt.setString(1, isbn);
+            pstmt.setString(2, newTitle);
+            pstmt.setString(3, newAuthor);
+            pstmt.setString(4, newYear);
+            pstmt.setInt(5, bookID);
             pstmt.executeUpdate();
             connection.close();
 
