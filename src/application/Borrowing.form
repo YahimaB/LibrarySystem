@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="application.Borrowing">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="2" bottom="2" right="2"/>
+    <constraints>
+      <xy x="48" y="54" width="461" height="461"/>
+    </constraints>
+    <properties>
+      <background color="-11715267"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="46002" binding="Header" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="100"/>
+            <preferred-size width="1200" height="100"/>
+            <maximum-size width="10000" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-11715267"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="f3008" class="javax.swing.JLabel" binding="Logo">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="133" height="100"/>
+                <preferred-size width="133" height="100"/>
+                <maximum-size width="133" height="100"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1333"/>
+              <horizontalAlignment value="0"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="4a80a" binding="RightBody" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="400" height="350"/>
+            <preferred-size width="0" height="0"/>
+            <maximum-size width="1000" height="10000"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-1"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="5c287" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-4335133"/>
+              <opaque value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="2e048" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier" size="22" style="1"/>
+                  <foreground color="-16776704"/>
+                  <text value="Reader's surname"/>
+                </properties>
+              </component>
+              <component id="4b754" class="javax.swing.JTextField" binding="LastField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1640451"/>
+                  <font name="Arial Rounded MT Bold" size="26"/>
+                  <foreground color="-16776704"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="dcb2e" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier" size="22" style="1"/>
+                  <foreground color="-16776704"/>
+                  <text value="Reader's name"/>
+                  <verticalTextPosition value="3"/>
+                </properties>
+              </component>
+              <component id="8ff83" class="javax.swing.JTextField" binding="FirstField">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1640451"/>
+                  <font name="Arial Rounded MT Bold" size="26"/>
+                  <foreground color="-16776704"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="a1dbf" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier" size="22" style="1"/>
+                  <foreground color="-16776704"/>
+                  <text value="Book's ID"/>
+                </properties>
+              </component>
+              <component id="4543a" class="javax.swing.JTextField" binding="BookField">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1640451"/>
+                  <font name="Arial Rounded MT Bold" size="26"/>
+                  <foreground color="-16776704"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <grid id="64df8" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="10" bottom="5" right="10"/>
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <opaque value="false"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="e227e" class="javax.swing.JTextPane" binding="TextPane">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="50"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <background color="-1640451"/>
+                      <dragEnabled value="false"/>
+                      <editable value="false"/>
+                      <margin top="0" left="0" bottom="0" right="0"/>
+                      <text value="Error message"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="efabe" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="2" bottom="10" right="2"/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-4335133"/>
+              <opaque value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="75b1c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier" size="22" style="1"/>
+                  <foreground color="-16776704"/>
+                  <text value="Borrow Date"/>
+                </properties>
+              </component>
+              <component id="945f0" class="javax.swing.JTextField" binding="BorrowField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1640451"/>
+                  <font name="Arial Rounded MT Bold" size="26"/>
+                  <foreground color="-16776704"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="b27a1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Courier" size="22" style="1"/>
+                  <foreground color="-16776704"/>
+                  <text value="Return Date"/>
+                  <verticalTextPosition value="3"/>
+                </properties>
+              </component>
+              <component id="a74df" class="javax.swing.JTextField" binding="ReturnField">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1640451"/>
+                  <font name="Arial Rounded MT Bold" size="26"/>
+                  <foreground color="-16776704"/>
+                  <margin top="2" left="5" bottom="2" right="5"/>
+                  <opaque value="false"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="15900" class="javax.swing.JButton" binding="OK">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <font name="Courier" size="28" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <iconTextGap value="0"/>
+              <label value="OK"/>
+              <text value="OK"/>
+            </properties>
+          </component>
+          <component id="feb23" class="javax.swing.JButton" binding="Cancel">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <font name="Courier" size="28" style="1"/>
+              <foreground color="-16777216"/>
+              <hideActionText value="false"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <iconTextGap value="0"/>
+              <label value="Cancel"/>
+              <text value="Cancel"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

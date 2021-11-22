@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="application.LoginWindow">
+  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="-76" y="54" width="642" height="406"/>
+    </constraints>
+    <properties>
+      <background color="-2162700"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="2dcfd" binding="Header" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="125"/>
+            <preferred-size width="1200" height="125"/>
+            <maximum-size width="10000" height="125"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-11715267"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="3f44f" class="javax.swing.JLabel" binding="Logo">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="166" height="125"/>
+                <preferred-size width="166" height="125"/>
+                <maximum-size width="166" height="125"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-1776473"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <inheritsPopupMenu value="true"/>
+              <opaque value="false"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="70b7f" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="f14fb" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier" size="36" style="1"/>
+              <foreground color="-16776704"/>
+              <horizontalAlignment value="0"/>
+              <text value="Login"/>
+              <verticalAlignment value="3"/>
+              <verticalTextPosition value="3"/>
+            </properties>
+          </component>
+          <component id="999ae" class="javax.swing.JTextField" binding="LoginField">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="300" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <alignmentY value="0.5"/>
+              <background color="-69"/>
+              <font name="Arial Rounded MT Bold" size="36"/>
+              <foreground color="-16776704"/>
+              <margin top="2" left="6" bottom="2" right="6"/>
+              <opaque value="true"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="31f3b" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Courier" size="36" style="1"/>
+              <foreground color="-16776704"/>
+              <horizontalAlignment value="0"/>
+              <text value="Password"/>
+              <verticalAlignment value="3"/>
+              <verticalTextPosition value="3"/>
+            </properties>
+          </component>
+          <grid id="c8009" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="true">
+                <minimum-size width="-1" height="40"/>
+                <preferred-size width="-1" height="40"/>
+                <maximum-size width="-1" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <opaque value="false"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="fad16" class="javax.swing.JTextPane" binding="errorMessageTextPane" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="2" fill="1" indent="0" use-parent-layout="false">
+                    <minimum-size width="-1" height="40"/>
+                    <preferred-size width="150" height="40"/>
+                    <maximum-size width="-1" height="40"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1935741"/>
+                  <dragEnabled value="false"/>
+                  <editable value="false"/>
+                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <text value=""/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="3d68e" class="javax.swing.JPasswordField" binding="PassField">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="1" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="300" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-69"/>
+              <font name="Arial Rounded MT Bold" size="36"/>
+              <foreground color="-16777216"/>
+              <margin top="2" left="5" bottom="2" right="5"/>
+              <opaque value="true"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
