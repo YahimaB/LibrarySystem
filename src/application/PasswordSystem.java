@@ -15,10 +15,9 @@ public class PasswordSystem {
     }
 
     //Method to generate a new hash for specific password
-    private void GenerateDBhashPass(String password) {
+    public String GenerateDBhashPass(String password) {
         String saltedPassword = SALT + password;
-        String hashedPassword = GenerateHash(saltedPassword);
-        System.out.println("Hash is: \n" + hashedPassword);
+        return GenerateHash(saltedPassword);
     }
 
     //Method to compare entered password with the correct one from the database

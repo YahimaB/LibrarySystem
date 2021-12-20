@@ -32,6 +32,29 @@ public class DB_Select {
         return answer;
     }
 
+    public static String SelectReaderName(String passport) {
+        String answer = "";
+        String sql = "SELECT Readers.FirstName, Readers.LastName FROM Readers WHERE PassportNum = ?";
+
+        try {
+            Connection connection = DB_Connect.Connect();
+            PreparedStatement pstmt = connection.prepareStatement(sql);
+            pstmt.setString(1, passport);
+            ResultSet queryResult = pstmt.executeQuery();
+            //If anything was found
+            if (queryResult.next()) {
+                answer = answer + queryResult.getString(1) + " " + queryResult.getString(2);
+            }
+            connection.close();
+
+        } catch (SQLException e) {
+            //If unsuccessful
+            System.out.println(e.getMessage());
+        }
+
+        return answer;
+    }
+
     //Method to get librarian's hashed password from database
     public static String GetLibrarianPassword(String firstName, String lastName) {
         String answer = "";
@@ -86,6 +109,12 @@ public class DB_Select {
     public static void SelectAllBooks(String BookName, ArrayList<ArrayList> OutList) {
         String sql = "SELECT * FROM Books WHERE Title LIKE ?";
         SelectAllRows(sql, 5, BookName, OutList);
+    }
+
+    //Method to get the table of all books
+    public static void SelectAllBooksByAuthor(String AuthorName, ArrayList<ArrayList> OutList) {
+        String sql = "SELECT * FROM Books WHERE Author LIKE ?";
+        SelectAllRows(sql, 5, AuthorName, OutList);
     }
 
     //Method to get the table of all readers

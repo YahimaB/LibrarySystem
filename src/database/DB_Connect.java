@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
-class DB_Connect {
+public class DB_Connect {
+    public static String url = "jdbc:sqlite:src/resources/data/DataBase.db";
 
     //Method used to connect to the database
     static Connection Connect() {
@@ -13,7 +14,6 @@ class DB_Connect {
         //Try to establish connection
         try {
             //Actual path to the database
-            String url = "jdbc:sqlite:src/resources/data/DataBase.db";
             connection = DriverManager.getConnection(url);
 
         } catch (SQLException e) {

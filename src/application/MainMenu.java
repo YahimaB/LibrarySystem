@@ -37,6 +37,7 @@ public class MainMenu extends JDialog {
     private JButton Return;
     private JScrollPane DebtorScrollPanel;
     private JTable DebtorTable;
+    private JComboBox comboBox1;
 
     private boolean isShowingBooks;
 
@@ -133,6 +134,8 @@ public class MainMenu extends JDialog {
 
         AllBooks.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                nameInput.setText("");
+                comboBox1.setVisible(true);
                 OnAllBooks();
                 isShowingBooks = true;
             }
@@ -140,6 +143,8 @@ public class MainMenu extends JDialog {
 
         AllBorrows.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                nameInput.setText("");
+                comboBox1.setVisible(false);
                 OnAllReaders();
                 isShowingBooks = false;
             }
@@ -155,7 +160,10 @@ public class MainMenu extends JDialog {
             @Override
             public void removeUpdate(DocumentEvent e) {
                 if (isShowingBooks)
-                    ShowTableOfBooks(nameInput.getText());
+                    if (comboBox1.getSelectedIndex() == 0)
+                        ShowTableOfBooks(nameInput.getText());
+                    else
+                        ShowTableOfBooks(nameInput.getText(), true);
                 else
                     ShowTableOfBorrows(nameInput.getText());
             }
@@ -163,7 +171,10 @@ public class MainMenu extends JDialog {
             @Override
             public void insertUpdate(DocumentEvent e) {
                 if (isShowingBooks)
-                    ShowTableOfBooks(nameInput.getText());
+                    if (comboBox1.getSelectedIndex() == 0)
+                        ShowTableOfBooks(nameInput.getText());
+                    else
+                        ShowTableOfBooks(nameInput.getText(), true);
                 else
                     ShowTableOfBorrows(nameInput.getText());
             }
@@ -171,7 +182,10 @@ public class MainMenu extends JDialog {
             @Override
             public void changedUpdate(DocumentEvent e) {
                 if (isShowingBooks)
-                    ShowTableOfBooks(nameInput.getText());
+                    if (comboBox1.getSelectedIndex() == 0)
+                        ShowTableOfBooks(nameInput.getText());
+                    else
+                        ShowTableOfBooks(nameInput.getText(), true);
                 else
                     ShowTableOfBorrows(nameInput.getText());
             }
@@ -187,6 +201,18 @@ public class MainMenu extends JDialog {
                 }
             }
         });
+
+        comboBox1.addItem("By Book");
+        comboBox1.addItem("By Author");
+        comboBox1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (comboBox1.getSelectedIndex() == 0)
+                    ShowTableOfBooks(nameInput.getText());
+                else
+                    ShowTableOfBooks(nameInput.getText(), true);
+            }
+        });
+
     }
     
     void OnAddBook() {
@@ -266,6 +292,7 @@ public class MainMenu extends JDialog {
     //Show table of all books without search criteria
     private void OnAllBooks() {
         ShowTableOfBooks("");
+        comboBox1.setSelectedItem(comboBox1.getItemAt(0));
     }
 
     //Show table of all borrowings without search criteria
@@ -289,8 +316,12 @@ public class MainMenu extends JDialog {
         ShowTableOfBooks("");
     }
 
-    //Method to update the table of books
     private void ShowTableOfBooks(String bookTitle) {
+        ShowTableOfBooks(bookTitle, false);
+    }
+
+    //Method to update the table of books
+    private void ShowTableOfBooks(String bookTitle, boolean byAuthor) {
         MainTable.setAutoCreateRowSorter(true);
         MainTable.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         MainScrollPanel.getHorizontalScrollBar().setUnitIncrement(4);
@@ -299,7 +330,11 @@ public class MainMenu extends JDialog {
         ArrayList<ArrayList> booksList = new ArrayList<>();
         String[] columnNames = {"Book ID", "ISBN","Title", "Author", "Year of publishing"};
 
-        DB_Select.SelectAllBooks(bookTitle, booksList);
+        if (!byAuthor) {
+            DB_Select.SelectAllBooks(bookTitle, booksList);
+        } else {
+            DB_Select.SelectAllBooksByAuthor(bookTitle, booksList);
+        }
 
         TableModel dataModel = new AbstractTableModel() {
             public int getColumnCount() { return 5; }
@@ -384,4 +419,7 @@ public class MainMenu extends JDialog {
         }
     }
 
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

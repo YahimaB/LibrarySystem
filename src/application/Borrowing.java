@@ -4,6 +4,8 @@ import database.DB_Insert;
 import database.DB_Select;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,11 +21,12 @@ public class Borrowing extends JDialog {
     private JButton OK;
     private JButton Cancel;
     private JTextField LastField;
-    private JTextField FirstField;
+//    private JTextField FirstField;
     private JTextField BookField;
     private JTextPane TextPane;
     private JTextField BorrowField;
     private JTextField ReturnField;
+    private JLabel readerName;
 
     public Borrowing() {
         setContentPane(contentPane);
@@ -58,6 +61,29 @@ public class Borrowing extends JDialog {
                 OnCancel();
             }
         });
+
+        LastField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                UpdateReaderName();
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                UpdateReaderName();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                UpdateReaderName();
+            }
+        });
+    }
+
+    private void UpdateReaderName() {
+        String name = DB_Select.SelectReaderName(LastField.getText());
+        if (name.isEmpty()) name = "No reader";
+        readerName.setText(name);
     }
 
     private void OnOk() {
@@ -67,12 +93,12 @@ public class Borrowing extends JDialog {
         //Check if all field are filled, else show error message
         if (LastField.getText().isEmpty()) {
             isEverythingOk = false;
-            TextPane.setText(TextPane.getText() + "Reader's surname is empty\n");
+            TextPane.setText(TextPane.getText() + "Reader's id is empty\n");
         }
 
-        if (FirstField.getText().isEmpty()) {
+        if (readerName.getText().isEmpty() || readerName.getText() == "No reader") {
             isEverythingOk = false;
-            TextPane.setText(TextPane.getText() + "Reader's name is empty\n");
+            TextPane.setText(TextPane.getText() + "No reader found\n");
         }
 
         if (BookField.getText().isEmpty()) {
@@ -100,9 +126,10 @@ public class Borrowing extends JDialog {
             return;
         }
 
+        String[] name = readerName.getText().split(" ");
         //If fields are filled - add a new borrowing to database
         if (isEverythingOk) {
-            String readerID = DB_Select.SelectReaderID(FirstField.getText(), LastField.getText());
+            String readerID = DB_Select.SelectReaderID(name[0], name[1]);
             if (readerID.equals("")) {
                 JOptionPane.showMessageDialog(frame, "There is no person with \nthis credentials", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
